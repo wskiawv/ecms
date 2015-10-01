@@ -55,9 +55,13 @@ public class BaseController<T>{
 	 * @param o
 	 * @throws IOException
 	 */
-	public void renderJson(Object o) throws IOException{
-		JSONSerializer js =new JSONSerializer();
-		response.getWriter().write(js.toJSON(o).toString());
+	public void renderJson(Object o){
+		try{
+			JSONSerializer js =new JSONSerializer();
+			response.getWriter().write(js.toJSON(o).toString());
+		}catch(IOException e){
+			e.printStackTrace();
+		}		
 	}
 	/**
 	 * 获取前台请求参数
@@ -86,7 +90,8 @@ public class BaseController<T>{
 	 * @throws IOException 
 	 */
 	@ResponseBody  
-	public void _Save(T o) throws IOException{
+	public void _Save(T o){
+		
 		baseService.save(o);
 		Msg msg=new Msg("success","true");
 		renderJson(msg);
@@ -102,7 +107,7 @@ public class BaseController<T>{
 		baseService.delete(o);		
 	}
 	@ResponseBody 
-	public void _Update(T o) throws IOException{
+	public void _Update(T o){
 		baseService.update(o);
 		Msg msg=new Msg("success","true");
 		renderJson(msg);
@@ -115,7 +120,7 @@ public class BaseController<T>{
 	 * @throws IOException 
 	 */
 	@ResponseBody 
-	public void _Search(Class<T> o) throws IOException{
+	public void _Search(Class<T> o){
 		Map<String,Object> params=getRequestParams();
 		Page<T> page=baseService.find(o, params);
 		renderJson(page);
@@ -127,7 +132,7 @@ public class BaseController<T>{
 	 * @throws IOException 
 	 */
 	@ResponseBody 
-	public void _Delete(Class<T> o,String ids) throws IOException{	
+	public void _Delete(Class<T> o,String ids){	
 		String []values=ids.split(",");
 		if(values !=null && values.length>0){
 			for(String id:values){		

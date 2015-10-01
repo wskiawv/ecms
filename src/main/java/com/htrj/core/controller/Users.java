@@ -20,7 +20,7 @@ import com.htrj.core.model.User;
 public class Users extends BaseController<User> {
 	
 	@RequestMapping(value="/save", method=RequestMethod.POST)	
-	public void save(User user) throws IOException{
+	public void save(User user){
 		_Save(user);		
 	}
 	@RequestMapping(value="/success", method=RequestMethod.POST)	
@@ -33,16 +33,16 @@ public class Users extends BaseController<User> {
 		
 	}
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
-	public void delete(String id) throws IOException{		
+	public void delete(String id){		
 		_Delete(User.class,id);	
 		
 	}
 	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public void update(User user) throws IOException{
+	public void update(User user){
 		_Update(user);		
 	}
 	@RequestMapping(value="/search", method=RequestMethod.GET)
-	public void search() throws IOException{
+	public void search(){
 		_Search(User.class);		
 	}
 	@RequestMapping(value="/show", method=RequestMethod.POST)
