@@ -60,6 +60,7 @@ public class BaseController<T>{
 			JSONSerializer js =new JSONSerializer();
 			response.getWriter().write(js.toJSON(o).toString());
 		}catch(IOException e){
+			log.info(e.getMessage());
 			e.printStackTrace();
 		}		
 	}
