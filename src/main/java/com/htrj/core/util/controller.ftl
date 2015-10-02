@@ -22,11 +22,11 @@ public class ${controller} extends ${cextend}<${model}> {
 	
 	
 	@RequestMapping(value="/save", method=RequestMethod.POST)
-	public void save(${model} model) throws Exception {
+	public void save(${model} model) {
 		_Save(model);
 	}
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
-	public void delete(String id) throws Exception {
+	public void delete(String id) {
 		_Delete(${model}.class,id);
 	}
 	@RequestMapping(value="/update", method=RequestMethod.POST)
@@ -34,7 +34,7 @@ public class ${controller} extends ${cextend}<${model}> {
 		_Update(model);		
 	}
 	@RequestMapping(value="/search", method=RequestMethod.GET)
-	public void search() throws Exception{
+	public void search(){
 		_Search(${model}.class);
 	}
 	@RequestMapping(value="/show", method=RequestMethod.POST)
