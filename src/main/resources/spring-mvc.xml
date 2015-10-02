@@ -29,6 +29,7 @@
 	       </property>
   </bean>
   <mvc:resources location="/js/" mapping="/js/**"/>
+  <mvc:resources location="/jqGrid/" mapping="/jqGrid/**"/>
   <mvc:resources location="/css/" mapping="/css/**"/>
   <mvc:resources location="/image/" mapping="/image/**"/>  
   <bean id="viewResolver"

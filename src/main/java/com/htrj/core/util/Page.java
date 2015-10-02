@@ -1,10 +1,11 @@
 package com.htrj.core.util;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-public class Page<T> {
+public class Page<T> implements Serializable{
 	public static final String ASC = "asc";
 	public static final String DESC = "desc";
 	private Integer start;

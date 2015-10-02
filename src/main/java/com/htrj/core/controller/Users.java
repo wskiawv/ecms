@@ -17,7 +17,7 @@ import com.htrj.core.model.User;
 
 @Controller
 @RequestMapping("/user")
-public class Users extends BaseController<User> {
+public class Users extends BaseController {
 	
 	@RequestMapping(value="/save", method=RequestMethod.POST)	
 	public void save(User user){
@@ -47,7 +47,7 @@ public class Users extends BaseController<User> {
 	}
 	@RequestMapping(value="/show", method=RequestMethod.POST)
 	public User show(Long id){
-		return _Show(User.class,id);		
+		return (User) _Show(User.class,id);		
 	}
 	
 	@ResponseBody
