@@ -11,6 +11,7 @@ public class JqGridPage<T> implements Serializable{
 	private Integer start;
 	private Integer limit;
 	private Long total;
+	
 	private String orderBy = null;
 	private String order = null;
 
@@ -98,4 +99,5 @@ public class JqGridPage<T> implements Serializable{
 	public static String getDesc() {
 		return DESC;
 	}
+
 }

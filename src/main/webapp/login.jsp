@@ -116,7 +116,7 @@
 			viewrecords: true,
             width: 780,
             height: 250,
-            rowNum: 20,
+            rowNum: 25,
             rowList:[25,50,100],
             pager: "#jqGridPager"
         });

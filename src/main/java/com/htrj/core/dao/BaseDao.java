@@ -269,7 +269,8 @@ public class BaseDao implements BaseDaoI {
 		JqGridPage page=new JqGridPage(params);
 		Criteria  c= properyFiter(clazz,params);
 		Long totalCount=count(clazz,params);
-		page.setTotal(totalCount);
+		Long p=totalCount%page.getLimit()==0? (totalCount/page.getLimit()):(totalCount/page.getLimit())+1;
+		page.setTotal(p);		
 		c.setFirstResult(page.getStart());
 		c.setMaxResults(page.getLimit());
 		c.addOrder(Order.desc("id"));
