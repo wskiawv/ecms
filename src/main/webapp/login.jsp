@@ -104,14 +104,14 @@
 	}
 	$(document).ready(function () {
         $("#jqGrid").jqGrid({
-            url: 'user/userList',
+            url: 'user/find',
             mtype: "GET",
             datatype: "json",
             colModel: [
-                { label: 'id', name: 'id', key: true, width: 75 },
-                { label: 'username', name: 'username', width: 150 },
-                { label: 'password', name: 'password', width: 150 },
-                { label: 'registertime', name: 'registertime', width: 150 }                
+                { label: '编号', name: 'id', key: true, width: 75 },
+                { label: '用户名', name: 'username', width: 150 },
+                { label: '密码', name: 'password', width: 150 },
+                { label: '注册时间', name: 'registertime', width: 150 }                
             ],
 			viewrecords: true,
             width: 780,

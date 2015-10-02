@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
 
+import com.htrj.core.util.JqGridPage;
 import com.htrj.core.util.Page;
 
 public interface BaseDaoI {
@@ -130,12 +131,14 @@ public interface BaseDaoI {
 	 */
 	public Long count(String hql);
 	/**
-	 * 根据实体和查询参数返回实体List
+	 * 根据实体和查询参数返回实体List extjs分页
 	 * @param clazz
 	 * @param params
 	 * @return
 	 */
 	public Page find(Class clazz,Map<String, Object> params);
+	
+	
 	
 	/**
 	 * 根据实体类和查询参数统计
@@ -262,4 +265,11 @@ public interface BaseDaoI {
 	 * @return 数目
 	 */
 	public BigInteger countBySql(String sql, Map<String, Object> params);
+	/**
+	 * jqGrid组件分页
+	 * @param clazz
+	 * @param params
+	 * @return
+	 */
+	public JqGridPage findJqGridPage(Class clazz,Map<String, Object> params);
 }

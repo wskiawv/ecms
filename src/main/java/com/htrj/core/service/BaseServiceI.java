@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
 
+import com.htrj.core.util.JqGridPage;
 import com.htrj.core.util.Page;
 
 public interface BaseServiceI<T> {
@@ -262,4 +263,11 @@ public interface BaseServiceI<T> {
 	 * @return 数目
 	 */
 	public BigInteger countBySql(String sql, Map<String, Object> params);
+	/**
+	 * jqGrid组件分页
+	 * @param clazz
+	 * @param params
+	 * @return
+	 */
+	public JqGridPage findJqGridPage(Class clazz,Map<String, Object> params);
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.htrj.core.dao.BaseDaoI;
+import com.htrj.core.util.JqGridPage;
 import com.htrj.core.util.Page;
 
 @Service
@@ -167,6 +168,12 @@ public class BaseService implements BaseServiceI {
 	public BigInteger countBySql(String sql, Map params) {
 		// TODO Auto-generated method stub
 		return baseDao.countBySql(sql, params);
+	}
+
+	@Override
+	public JqGridPage findJqGridPage(Class clazz, Map params) {
+		// TODO Auto-generated method stub
+		return baseDao.findJqGridPage(clazz, params);
 	}
 	
 	

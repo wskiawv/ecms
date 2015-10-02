@@ -18,6 +18,7 @@ import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.htrj.core.util.JqGridPage;
 import com.htrj.core.util.Page;
 
 @Repository
@@ -260,6 +261,20 @@ public class BaseDao implements BaseDaoI {
 	public Long count(Class clazz, Map<String, Object> params) {
 		Criteria  c= properyFiter(clazz,params);
 		return (long) c.list().size()<=0?0:(long) c.list().size();
+	}
+
+	@Override
+	public JqGridPage findJqGridPage(Class clazz, Map<String, Object> params) {
+		// TODO Auto-generated method stub
+		JqGridPage page=new JqGridPage(params);
+		Criteria  c= properyFiter(clazz,params);
+		Long totalCount=count(clazz,params);
+		page.setTotal(totalCount);
+		c.setFirstResult(page.getStart());
+		c.setMaxResults(page.getLimit());
+		c.addOrder(Order.desc("id"));
+		page.setRows(c.list());	
+		return page;
 	}
 
 }

@@ -21,6 +21,7 @@ import com.htrj.core.model.Msg;
 
 
 import com.htrj.core.service.BaseServiceI;
+import com.htrj.core.util.JqGridPage;
 import com.htrj.core.util.Page;
 
 @Controller
@@ -115,7 +116,7 @@ public class BaseController{
 	}
 	
 	/**
-	 * 查询分页
+	 * 查询分页extjs
 	 * @param o
 	 * @return
 	 * @throws IOException 
@@ -126,7 +127,16 @@ public class BaseController{
 		Page page=baseService.find(o, params);
 		renderJson(page);
 	}
-	
+	/**
+	 * jqGrid分页
+	 * @param o
+	 */
+	@ResponseBody 
+	public void _Find(Class o){
+		Map<String,Object> params=getRequestParams();
+		JqGridPage page=baseService.findJqGridPage(o, params);
+		renderJson(page);
+	}
 	/**
 	 * 批量删除
 	 * @param o

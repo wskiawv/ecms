@@ -57,4 +57,8 @@ public class Users extends BaseController {
 		List<User> user=super.getBaseService().find(sql);
 		return user;
 	}
+	@RequestMapping(value="/find", method=RequestMethod.GET)
+	public void find(){
+		_Find(User.class);
+	}
 }
