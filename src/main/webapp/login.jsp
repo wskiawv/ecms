@@ -95,18 +95,19 @@
             mtype: "GET",
             datatype: "json",
             colModel: [
-                { label: '编号', name: 'id', key: true, width: 75 },
-                { label: '用户名', name: 'username', width: 150 },
-                { label: '密码', name: 'password', width: 150 },
-                { label: '注册时间', name: 'registertime', width: 150 }                
+               /*  { label: '编号', name: 'id', key: true, width: 75, editable: true }, */
+                { label: '用户名', name: 'username', width: 150 , editable: true},
+                { label: '密码', name: 'password', width: 150 , editable: true},
+                { label: '注册时间', name: 'registertime', width: 150, editable: true }                
             ],
             
 			viewrecords: true,
             width: 890,
             height: 300,
-            rowNum: 25,
+            rowNum: 50,
             rowList:[25,50,100],
-            multiselect: true,
+            multiselect: true,//checkbox
+            rownumbers: true,//行号            
             pager: "#jqGridPager"
         }).navGrid('#jqGridPager',{edit:true,add:true,del:true,search:true,refresh:true});
         /* .navButtonAdd('#jqGridPager',{
