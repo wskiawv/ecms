@@ -7,33 +7,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>首页</title>
-
-<link rel="stylesheet" type="text/css" href="<%=path%>/jqGrid/css/jquery-ui.css" />
-<link rel="stylesheet" type="text/css" href="<%=path%>/jqGrid/css/prettify.css" />
-<%-- <link rel="stylesheet" type="text/css" href="<%=path%>/css/bootstrap-theme.min.css" />
-<link rel="stylesheet" type="text/css" href="<%=path%>/css/bootstrap.min.css" />
 <script src="<%=path%>/js/jquery-1.11.3.js"></script>
-<script src="<%=path%>/js/bootstrap.min.js"></script> --%>
-<%-- <script type="text/javascript" src="<%=path%>/js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="<%=path%>/js/jquery.xtable-1.1.js"></script>
-<script type="text/javascript" src="<%=path%>/js/jquery.cookie.js"></script>
-<link rel="stylesheet" type="text/css" media="screen"
-	href="<%=path%>/css/x-table.css" />
-<link rel="stylesheet" type="text/css" media="screen"
-	href="<%=path%>/css/x-table-icons.css" />
-
-<link rel="stylesheet" type="text/css" media="screen"
-	href="<%=path%>/css/prettify.css" />
-<script type="text/javascript" src="<%=path%>/js/prettify.js"></script> --%>
-
-<script type="text/javascript" src="<%=path%>/jqGrid/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="<%=path%>/js/bootstrap.min.js"></script> 
 <script type="text/javascript" src="<%=path%>/jqGrid/js/i18n/grid.locale-cn.js"></script>
 <script type="text/javascript" src="<%=path%>/jqGrid/js/jquery.jqGrid.min.js"></script>
-<script type="text/javascript" src="<%=path%>/jqGrid/js/prettify.js"></script>
-<script type="text/javascript" src="<%=path%>/jqGrid/js/codetabs.js"></script>
-<%-- <link rel="stylesheet" type="text/css" media="screen" href="<%=path%>/jqGrid/css/ui.jqgrid-bootstrap.css"/>
-<link rel="stylesheet" type="text/css" media="screen" href="<%=path%>/jqGrid/css/ui.jqgrid-bootstrap-ui.css"/> --%>
-<link rel="stylesheet" type="text/css" media="screen" href="<%=path%>/jqGrid/css/ui.jqgrid.css"/>
+<link rel="stylesheet" type="text/css" href="<%=path%>/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="<%=path%>/jqGrid/css/ui.jqgrid-bootstrap.css"/>
+
+
 <script>
 	function login() {
 		
@@ -42,7 +23,8 @@
 			type : 'POST',
 			data : $('#loginform').serialize(),
 			success : function(data) {
-				alert(data);
+				//alert(data);
+				$("#jqGrid").trigger("reloadGrid");
 			}
 		})
 		//$("#loginform").submit();
@@ -84,7 +66,8 @@
 			type : 'POST',
 			data : $('#update').serialize(),
 			success : function(data) {
-				alert(data);
+				$("#jqGrid").trigger("reloadGrid");
+				//alert(data);
 			}
 		})
 		//$("#update").submit();
@@ -98,13 +81,17 @@
 				id : id
 			},
 			success : function(data) {
-				alert(data);
+				$("#jqGrid").trigger("reloadGrid");
 			}
 		})
 	}
 	$(document).ready(function () {
+		$.jgrid.defaults.width = 780;
+		$.jgrid.defaults.responsive = true;
+		$.jgrid.defaults.styleUI = 'Bootstrap';
         $("#jqGrid").jqGrid({
             url: 'user/find',
+            styleUI : 'Bootstrap',
             mtype: "GET",
             datatype: "json",
             colModel: [
@@ -113,14 +100,59 @@
                 { label: '密码', name: 'password', width: 150 },
                 { label: '注册时间', name: 'registertime', width: 150 }                
             ],
+            
 			viewrecords: true,
-            width: 780,
-            height: 250,
+            width: 890,
+            height: 300,
             rowNum: 25,
             rowList:[25,50,100],
+            multiselect: true,
             pager: "#jqGridPager"
-        });
+        }).navGrid('#jqGridPager',{edit:true,add:true,del:true,search:true,refresh:true});
+        /* .navButtonAdd('#jqGridPager',{
+        	   caption:"Add", 
+        	   buttonicon:"ui-icon-add", 
+        	   onClickButton: function(){ 
+        	     alert("Adding Row");
+        	   }, 
+        	   position:"last"
+        	})
+        	.navButtonAdd('#jqGridPager',{
+        	   caption:"Del", 
+        	   buttonicon:"ui-icon-del", 
+        	   onClickButton: function(){ 
+        	      alert("Deleting Row");
+        	   }, 
+        	   position:"last"
+        	}); */
+        $('#jqGrid').navGrid('#jqGridPager',
+                // the buttons to appear on the toolbar of the grid
+                { edit: true, add: true, del: true, search: false, refresh: false, view: false, position: "left", cloneToTop: false },
+                // options for the Edit Dialog
+                {
+                    editCaption: "The Edit Dialog",
+    				template: template,
+                    errorTextFormat: function (data) {
+                        return 'Error: ' + data.responseText
+                    }
+                },
+                // options for the Add Dialog
+                {
+    				template: template,
+                    errorTextFormat: function (data) {
+                        return 'Error: ' + data.responseText
+                    }
+                },
+                // options for the Delete Dailog
+                {
+                    errorTextFormat: function (data) {
+                        return 'Error: ' + data.responseText
+                    }
+                });
     });
+	//$("#jqGrid").jqGrid('navGrid','#jqGridPager',{edit:true,add:true,del:true,view:true},{caption:'edit'},{},{},{});
+	
+   
 	/* $(document).ready(function() {
 		var config = {
 			height : 400,
@@ -221,7 +253,7 @@
 	 })(); */
 </script>
 </head>
-<body onload="prettyPrint()">
+<body>
 	<h2>Hello World!</h2>
 	<form action="user/save" id="loginform" method="post">
 		id:<input type="hidden" name="id"> 用户名：<input type="text"
@@ -237,8 +269,10 @@
 			onclick="update();"> <input type="button" value="删除"
 			onclick="deleteUser();">
 	</form>
-	<table id="jqGrid"></table>
-    <div id="jqGridPager"></div>
-	<div id="usertable"></div>
+	<div style="margin-left:200px">
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+	</div>
+	
 </body>
 </html>
