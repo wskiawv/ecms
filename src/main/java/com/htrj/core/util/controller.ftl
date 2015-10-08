@@ -30,16 +30,16 @@ public class ${controller} extends ${cextend}<${model}> {
 		_Delete(${model}.class,id);
 	}
 	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public void update(${model} model) throws IOException{
+	public void update(${model} model) {
 		_Update(model);		
 	}
 	@RequestMapping(value="/search", method=RequestMethod.GET)
-	public void search(){
+	public void search() {
 		_Search(${model}.class);
 	}
 	@RequestMapping(value="/show", method=RequestMethod.POST)
-	public ${model} show(Long id){
-		return _Show(${model}.class, id);
+	public ${model} show(Long id) {
+		return (${model})_Show(${model}.class, id);
 	}
 	
 	
