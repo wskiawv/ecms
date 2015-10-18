@@ -100,7 +100,7 @@
                 { label: '密码', name: 'password', width: 150 , editable: true},
                 { label: '注册时间', name: 'registertime', width: 150, editable: true }                
             ],
-            
+            editurl:'user/update',
 			viewrecords: true,
             width: 890,
             height: 300,
