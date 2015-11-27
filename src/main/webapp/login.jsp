@@ -94,6 +94,7 @@
             styleUI : 'Bootstrap',
             mtype: "GET",
             datatype: "json",
+            colNames:['username','password','registertime'],
             colModel: [
                /*  { label: '编号', name: 'id', key: true, width: 75, editable: true }, */
                 { label: '用户名', name: 'username', width: 150 , editable: true},
