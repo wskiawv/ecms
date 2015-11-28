@@ -22,7 +22,8 @@
      */
     "classpath": [
         "app",
-        "${toolkit.name}/src"
+        "${toolkit.name}/src",
+		"${app.dir}/../ux"
     ],
 
     /**
@@ -61,7 +62,9 @@
      *      ]
      */
     "requires": [
-        "font-awesome"
+        "font-awesome",		
+		"charts",
+        "ux"
     ],
 
     /**

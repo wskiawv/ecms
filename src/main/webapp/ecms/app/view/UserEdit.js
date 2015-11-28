@@ -1,0 +1,30 @@
+Ext.define('ecms.view.UserEdit',{
+	extend:'Ext.window.Window',
+	alias:'widget.UserEdit',
+	//requires:['Ext.window.Window'],
+	title:'编辑用户',
+	layout:'fit',
+	initComponent:function(){
+		this.items=[{
+			xtype:'form',
+			items:[{
+				xtype:'textfield',
+				name:'username',
+				fieldLabel:'用户名'
+			},{
+				xtype:'textfield',
+				name:'password',
+				fieldLabel:'密码'
+			}]
+		}];
+		this.buttons=[{
+			text:'保存',
+			action:'save'
+		},{
+			text:'取消',
+			scope:this,
+			handler:this.close
+		}];
+		this.callParent(arguments);
+	}
+});

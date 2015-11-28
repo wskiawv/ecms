@@ -12,10 +12,11 @@ Ext.define('ecms.view.main.Main', {
     requires: [
         'Ext.plugin.Viewport',
         'Ext.window.MessageBox',
-
         'ecms.view.main.MainController',
+        'ecms.controller.UsersController',
         'ecms.view.main.MainModel',
-        'ecms.view.main.List'
+        'ecms.view.main.List',
+        'ecms.view.UserList'
     ],
 
     controller: 'main',
@@ -85,9 +86,10 @@ Ext.define('ecms.view.main.Main', {
     }, {
         title: 'Users',
         iconCls: 'fa-user',
-        bind: {
+       /* bind: {
             html: '{loremIpsum}'
-        }
+        },*/
+        items:[{xtype:'UserList'}]
     }, {
         title: 'Groups',
         iconCls: 'fa-users',
