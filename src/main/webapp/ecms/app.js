@@ -5,7 +5,7 @@
  */
 Ext.application({
     name: 'ecms',
-
+    extend:'Ext.app.Application',
     //extend: 'ecms.Application',
 
     requires: [

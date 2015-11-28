@@ -48,7 +48,7 @@ Ext.define('ecms.GridWindow', {
                                { name: 'change', type: 'float' },
                                { name: 'pctChange', type: 'float' }
                             ],
-                            data: Desktop.GridWindow.getDummyData()
+                            data: ecms.GridWindow.getDummyData()
                         }),
                         columns: [
                             new Ext.grid.RowNumberer(),
