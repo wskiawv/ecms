@@ -78,6 +78,7 @@ String path = request.getContextPath();
    <li><a href="login.jsp">登录</a></li>
    <li><a href="main.jsp">后台管理系统</a></li>
    <li><a href="<%=path%>/ecms/main.jsp">ext</a></li>
+   <li><a href="<%=path%>/desktop/desktop.jsp">desktop</a></li>
 </ul>
 </body>
 </html>
