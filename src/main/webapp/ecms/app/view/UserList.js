@@ -10,6 +10,7 @@ Ext.define('ecms.view.UserList',{
     },
 
 	initComponent:function(){
+        var me=this;
 		this.columns=[{
             text     : '用户名',       
              width    : 75,     
@@ -29,6 +30,13 @@ Ext.define('ecms.view.UserList',{
             renderer : 'usMoney',
             dataIndex: 'registertime'
         }];
+        this.bbar=Ext.create('Ext.PagingToolbar', {
+            store: me.store,
+            displayInfo: true,
+            displayMsg: 'Displaying topics {0} - {1} of {2}',
+            emptyMsg: "No topics to display"           
+        });
         this.callParent();
+       
 	}
 });

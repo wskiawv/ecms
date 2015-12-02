@@ -39,7 +39,7 @@
                 //profile = tags.phone ? 'modern' : 'classic';
             }
 
-            Ext.manifest = profile; // this name must match a build profile name
+            Ext.manifest = "eims/"+profile; // this name must match a build profile name
 
             // This function is called once the manifest is available but before
             // any data is pulled from it.
@@ -52,7 +52,7 @@
     
     
     <!-- The line below must be kept intact for Sencha Cmd to build your application -->
-    <script id="microloader" data-app="90b2e59a-963f-44d5-adb2-5b6652f92a91" type="text/javascript" src="<%=path%>/ecms/bootstrap.js"></script>
+    <script id="microloader" data-app="90b2e59a-963f-44d5-adb2-5b6652f92a91" type="text/javascript" src="<%=path%>/eims/bootstrap.js"></script>
 </head>
 <body>
 

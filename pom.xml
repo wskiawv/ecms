@@ -105,7 +105,7 @@
 		<artifactId>log4j</artifactId>
 		<version>1.2.17</version>
 	</dependency>
-	<!-- 加入jstl依赖包 -->
+	<!-- 加入jstl依赖�?-->
 	<dependency>
 		<groupId>jstl</groupId>
 		<artifactId>jstl</artifactId>
@@ -129,7 +129,7 @@
 		<artifactId>freemarker</artifactId>
 		<version>2.3.23</version>
 	</dependency>
-	<!-- word excel ppt txt转换pdf依赖jar包 -->
+	<!-- word excel ppt txt转换pdf依赖jar�?-->
 	<dependency>
 		<groupId>com.artofsolving</groupId>
 		<artifactId>jodconverter</artifactId>
@@ -137,6 +137,29 @@
 	</dependency>
   </dependencies>
   <build>
-    <finalName>ecms</finalName>
+      <plugins>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>2.3.2</version>
+              <configuration>
+                  <encoding>${project.build.sourceEncoding}</encoding>
+              </configuration>
+          </plugin>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-resources-plugin</artifactId>
+              <version>2.4.3</version>
+              <configuration>
+                  <encoding>${project.build.sourceEncoding}</encoding>
+              </configuration>
+          </plugin>
+      </plugins>
+      <finalName>ecms</finalName>
   </build>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
 </project>

@@ -6,6 +6,7 @@ Ext.define('ecms.store.Users',{
     ],
 	models:['ecms.model.User'],
     alias:'Users',
+    pageSize:20,
 	proxy: {
         type: 'ajax',
         url: '/user/search',

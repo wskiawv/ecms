@@ -28,7 +28,8 @@
 	       		</list>
 	       </property>
   </bean>
-   <mvc:resources location="/ecms/" mapping="/ecms/**"/>
+  <mvc:resources location="/ecms/" mapping="/ecms/**"/>
+  <mvc:resources location="/eims/" mapping="/eims/**"/>
   <mvc:resources location="/js/" mapping="/js/**"/>
   <mvc:resources location="/desktop/" mapping="/desktop/**"/>
   <mvc:resources location="/jqGrid/" mapping="/jqGrid/**"/>
