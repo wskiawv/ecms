@@ -3,40 +3,51 @@ Ext.define('eims.view.UserList',{
 	alias:'widget.UserList',
         requires:['Ext.grid.Panel','eims.store.Users'],
 	title:'用户',
-	store:['eims.store.Users'],
+	store:{type:'Users'},
 	viewConfig: {
         stripeRows: true,
         enableTextSelection: true
     },
-
+    layout:'fit',
 	initComponent:function(){
         var me=this;
-		this.columns=[{
+
+		me.columns=[{
             text     : '用户名',       
-             width    : 75,     
+            width    : 120,     
             sortable : true,
             dataIndex: 'username'
         },
         {
             text     : '密码',
-            width    : 75,
-            sortable : true,
-            renderer : 'usMoney',
+            width    : 120,
+            sortable : true,            
             dataIndex: 'password'
         },{
             text     : '注册时间',           
             flex     : 1,
-            sortable : false,
-            renderer : 'usMoney',
+            sortable : false,           
             dataIndex: 'registertime'
         }];
-        this.bbar=Ext.create('Ext.PagingToolbar', {
-            store: me.store,
-            displayInfo: true,
-            displayMsg: 'Displaying topics {0} - {1} of {2}',
-            emptyMsg: "No topics to display"           
+        me.bbar=Ext.create('Ext.PagingToolbar', {
+            store: me.store,  
+            dock : 'bottom',
+            displayInfo : true,
+            displayMsg: '当前显示 {0} - {1} 共 {2}',
+            emptyMsg: "没有记录",
+            refreshText:'刷新',
+            prevText:'上一页',
+            nextText:'下一页',
+            firstText:'第一页',
+            afterPageText:'页',
+            beforePageText:'第',
+            lastText:'最后页'          
         });
-        this.callParent();
+        me.on('afterrender',function(grid){
+            grid.getStore().load();
+        });
+        
+        me.callParent([me]);
        
 	}
 });

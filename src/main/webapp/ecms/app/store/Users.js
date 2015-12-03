@@ -6,14 +6,21 @@ Ext.define('ecms.store.Users',{
     ],
 	models:['ecms.model.User'],
     alias:'Users',
-    pageSize:20,
-	proxy: {
-        type: 'ajax',
-        url: '/user/search',
-        reader: {
-            type: 'json',
-            root: 'result'
-        }
-    },
-    autoLoad: true
+    
+    constructor:function(){
+        var config=Ext.apply(this,{
+            proxy: {
+                type: 'ajax',
+                url: '/user/search',
+                reader: {
+                    type: 'json',
+                    root: 'result'
+                }
+            },
+            pageSize:20
+            // autoLoad: true
+        });
+        this.callParent([config]);
+    }
+	
 });

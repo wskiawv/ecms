@@ -1,19 +1,21 @@
 Ext.define('eims.store.Users',{
-	extend:'Ext.data.Store',
+    extend:'Ext.data.Store',
     requires: [
         'Ext.data.Store',
         'eims.model.User'
     ],
-	models:['eims.model.User'],
-    alias:'Users',
+    models:['eims.model.User'],
+    alias:'store.Users',
     pageSize:20,
 	proxy: {
         type: 'ajax',
         url: '/user/search',
         reader: {
             type: 'json',
-            root: 'result'
+            root: 'result',
+            totalProperty:'totalCount',
+            successProperty:'success'
         }
-    },
-    autoLoad: true
+    }
+    //autoLoad: true
 });
