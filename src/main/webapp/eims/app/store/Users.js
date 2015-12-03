@@ -14,7 +14,9 @@ Ext.define('eims.store.Users',{
             type: 'json',
             root: 'result',
             totalProperty:'totalCount',
-            successProperty:'success'
+            rootProperty:'result',
+            successProperty:'success',
+            idProperty:'id'
         }
     }
     //autoLoad: true

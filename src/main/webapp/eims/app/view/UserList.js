@@ -45,8 +45,9 @@ Ext.define('eims.view.UserList',{
         });
         me.on('afterrender',function(grid){
             grid.getStore().load();
+            //grid.doLayout();
         });
-        
+       // me.doLayout();
         me.callParent([me]);
        
 	}
