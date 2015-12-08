@@ -15,7 +15,7 @@
     
     <script type="text/javascript">
         var Ext = Ext || {}; // Ext namespace won't be defined yet...
-
+        var AppPath="<%=path%>";
         // This function is called by the Microloader after it has performed basic
         // device detection. The results are provided in the "tags" object. You can
         // use these tags here or even add custom tags. These can be used by platform

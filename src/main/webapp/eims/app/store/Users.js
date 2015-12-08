@@ -9,7 +9,7 @@ Ext.define('eims.store.Users',{
     pageSize:20,
 	proxy: {
         type: 'ajax',
-        url: '/user/search',
+        url: AppPath+'/user/search',
         reader: {
             type: 'json',
             root: 'result',

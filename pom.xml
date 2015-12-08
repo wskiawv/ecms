@@ -105,7 +105,7 @@
 		<artifactId>log4j</artifactId>
 		<version>1.2.17</version>
 	</dependency>
-	<!-- 加入jstl依赖�?-->
+	<!-- 加入jstl依赖�?-->
 	<dependency>
 		<groupId>jstl</groupId>
 		<artifactId>jstl</artifactId>
@@ -129,7 +129,7 @@
 		<artifactId>freemarker</artifactId>
 		<version>2.3.23</version>
 	</dependency>
-	<!-- word excel ppt txt转换pdf依赖jar�?-->
+	<!-- word excel ppt txt转换pdf依赖jar�?-->
 	<dependency>
 		<groupId>com.artofsolving</groupId>
 		<artifactId>jodconverter</artifactId>
@@ -154,6 +154,43 @@
                   <encoding>${project.build.sourceEncoding}</encoding>
               </configuration>
           </plugin>
+          <!-- 配置Maven插件(mvn jetty:run可以运行项目) -->
+		  <plugin>
+			  <groupId>org.mortbay.jetty</groupId>
+			  <artifactId>jetty-maven-plugin</artifactId>
+			  <version>8.1.9.v20130131</version>
+			  <configuration>
+				  <webAppConfig>
+					  <contextPath>/${project.build.finalName}</contextPath>
+				  </webAppConfig>
+				  <httpConnector>
+					  <port>8081</port>
+				  </httpConnector>
+				  <scanIntervalSeconds>2</scanIntervalSeconds>
+				 	  <stopKey>shutdown</stopKey>
+				  <stopPort>9966</stopPort>
+			  </configuration>
+		  </plugin>
+          <plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<path>/${project.build.finalName}</path>
+					<port>8090</port>
+					<uriEncoding>UTF-8</uriEncoding>
+					<finalName>${project.build.finalName}</finalName>
+					<server>tomcat7</server>
+				</configuration>
+				<!-- <executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions> -->
+			</plugin>
       </plugins>
       <finalName>ecms</finalName>
   </build>
