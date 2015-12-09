@@ -1,5 +1,5 @@
 $app-name:  dynamic( 'eims' );
-$image-search-path: 'E:/newworkspace/ecms/src/main/webapp/eims/build/production/eims/classic/resources';
+$image-search-path: 'E:/springSTS/workspace/ecms/src/main/webapp/eims/build/production/eims/classic/resources';
 $theme-name:  dynamic( 'theme-neptune' );
 $include-ext-abstractcomponent: dynamic(true);;
 $include-ext-abstractcontainer: dynamic(true);;
@@ -1113,6 +1113,7 @@ $include-eims-settings: dynamic(true);;
 $include-eims-systemstatus: dynamic(true);;
 $include-eims-tabwindow: dynamic(true);;
 $include-eims-videowindow: dynamic(true);;
+$include-eims-common-paging: dynamic(true);;
 $include-eims-controller-userscontroller: dynamic(true);;
 $include-eims-model-user: dynamic(true);;
 $include-eims-model-wallpaper: dynamic(true);;
