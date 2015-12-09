@@ -29,7 +29,7 @@ Ext.define('eims.view.UserList',{
             sortable : false,           
             dataIndex: 'registertime'
         }];
-        me.bbar=Ext.create('Ext.PagingToolbar', {
+        me.bbar=Ext.create('eims.common.Paging', {
             store: me.store,  
             dock : 'bottom',
             displayInfo : true,
